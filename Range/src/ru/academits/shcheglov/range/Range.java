@@ -9,70 +9,6 @@ public class Range {
         this.to = to;
     }
 
-    public double getLength() {
-        return to - from;
-    }
-
-    public boolean isInside(double number) {
-        return number >= from && number <= to;
-    }
-
-    public Range getRangesIntersection(Range range) {
-        if (this.from >= range.to || this.to <= range.from) {
-            return null;
-        }
-
-        if (this.from >= range.from && this.to <= range.to) {
-            return new Range(this.from, this.to);
-        }
-
-        if (this.from >= range.from && this.to > range.to) {
-            return new Range(this.from, range.to);
-        }
-
-        if (this.from < range.from && this.to <= range.to) {
-            return new Range(range.from, this.to);
-        }
-
-        return new Range(range.from, range.to);
-    }
-
-    public Range[] getRangesUnion(Range range) {
-        if (this.from > range.to || this.to < range.from) {
-            return new Range[]{new Range(this.from, this.to), new Range(range.from, range.to)};
-        }
-
-        if (this.from <= range.from && this.to >= range.to) {
-            return new Range[]{new Range(this.from, this.to)};
-        }
-
-        if ((this.from <= range.from && this.to < range.to) || this.to == range.from) {
-            return new Range[]{new Range(this.from, range.to)};
-        }
-
-        if ((this.from > range.from && this.to >= range.to) || this.from == range.to) {
-            return new Range[]{new Range(range.from, this.to)};
-        }
-
-        return new Range[]{new Range(range.from, range.to)};
-    }
-
-    public Range[] getRangesDifference(Range range) {
-        if (this.from < range.from && this.to > range.to) {
-            return new Range[]{new Range(this.from, range.from), new Range(range.to, this.to)};
-        }
-
-        if (this.from >= range.from && this.to > range.to) {
-            return new Range[]{new Range(range.to, this.to)};
-        }
-
-        if (this.from < range.from && this.to <= range.to) {
-            return new Range[]{new Range(this.from, range.from)};
-        }
-
-        return new Range[]{null};
-    }
-
     public double getFrom() {
         return from;
     }
@@ -87,5 +23,59 @@ public class Range {
 
     public void setTo(double to) {
         this.to = to;
+    }
+
+    public double getLength() {
+        return to - from;
+    }
+
+    public boolean isInside(double number) {
+        return number >= from && number <= to;
+    }
+
+    public Range getIntersection(Range range) {
+        if (from >= range.to || to <= range.from) {
+            return null;
+        }
+
+        double from = Math.max(this.from, range.from);
+        double to = Math.min(this.to, range.to);
+
+        return new Range(from, to);
+    }
+
+    public Range[] getUnion(Range range) {
+        if (from > range.to || to < range.from) {
+            return new Range[]{new Range(from, to), new Range(range.from, range.to)};
+        }
+
+        double from = Math.min(this.from, range.from);
+        double to = Math.max(this.to, range.to);
+
+        return new Range[]{new Range(from, to)};
+    }
+
+    public Range[] getDifference(Range range) {
+        if (from < range.from && to > range.to) {
+            return new Range[]{new Range(from, range.from), new Range(range.to, to)};
+        }
+
+        if (to <= range.from || range.to <= from) {
+            return new Range[]{new Range(from, to)};
+        }
+
+        if (from >= range.from && to > range.to) {
+            return new Range[]{new Range(range.to, to)};
+        }
+
+        if (from < range.from && to <= range.to) {
+            return new Range[]{new Range(from, range.from)};
+        }
+
+        return new Range[0];
+    }
+
+    public void print() {
+        System.out.printf("(%.2f ; %.2f)\n", from, to);
     }
 }

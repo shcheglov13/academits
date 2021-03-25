@@ -83,19 +83,12 @@ public class Main {
 
                     break;
                 case 3:
-                    double currentFrom;
-                    double currentTo;
-
                     if (selectedRange == 1) {
-                        currentFrom = range1.getFrom();
-                        currentTo = range1.getTo();
+                        range1.print();
                     } else {
-                        currentFrom = range2.getFrom();
-                        currentTo = range2.getTo();
+                        range2.print();
                     }
 
-                    System.out.println("Начало числового интервала: " + currentFrom);
-                    System.out.println("Конец числового интервала: " + currentTo);
                     break;
                 case 4:
                     System.out.println("Измените начало числового интервала:");
@@ -115,67 +108,53 @@ public class Main {
                     System.out.println("Границы интервала изменены");
                     break;
                 case 5:
-                    Range intersectionRange = range1.getRangesIntersection(range2);
+                    Range intersectionRange = range1.getIntersection(range2);
 
                     if (intersectionRange == null) {
                         System.out.println("Интервалы не пересекаются");
                         break;
                     }
 
-                    double newRangeFrom1 = intersectionRange.getFrom();
-                    double newRangeTo1 = intersectionRange.getTo();
-
                     System.out.println("Границы интервала-пересечения равны:");
-                    System.out.println("Начало интервала - " + newRangeFrom1);
-                    System.out.println("Конец интервала - " + newRangeTo1);
+                    intersectionRange.print();
 
                     break;
                 case 6:
-                    Range[] rangesArray = range1.getRangesUnion(range2);
-
-                    newRangeFrom1 = rangesArray[0].getFrom();
-                    newRangeTo1 = rangesArray[0].getTo();
+                    Range[] rangesArray = range1.getUnion(range2);
 
                     if (rangesArray.length == 2) {
-                        double newRangeFrom2 = rangesArray[1].getFrom();
-                        double newRangeTo2 = rangesArray[1].getTo();
-
                         System.out.println("Границы интервалов-объединения равны:");
-                        System.out.println("Начало интервала #1 - " + newRangeFrom1);
-                        System.out.println("Конец интервала #1 - " + newRangeTo1);
-                        System.out.println("Начало интервала #2 - " + newRangeFrom2);
-                        System.out.println("Конец интервала #2 - " + newRangeTo2);
+
+                        System.out.print("Интервал #1 - ");
+                        rangesArray[0].print();
+
+                        System.out.print("Интервал #2 - ");
+                        rangesArray[1].print();
                     } else {
                         System.out.println("Границы интервала-объединения равны:");
-                        System.out.println("Начало интервала- " + newRangeFrom1);
-                        System.out.println("Конец интервала- " + newRangeTo1);
+                        rangesArray[0].print();
                     }
 
                     break;
                 case 7:
-                    rangesArray = range1.getRangesDifference(range2);
+                    rangesArray = range1.getDifference(range2);
 
-                    if (rangesArray[0] == null) {
-                        System.out.println("Интервалы не пересекаются или разность интервалов равна 0");
+                    if (rangesArray.length == 0) {
+                        System.out.println("Интервал отсутствует");
                         break;
                     }
 
-                    newRangeFrom1 = rangesArray[0].getFrom();
-                    newRangeTo1 = rangesArray[0].getTo();
-
                     if (rangesArray.length == 2) {
-                        double newRangeFrom2 = rangesArray[1].getFrom();
-                        double newRangeTo2 = rangesArray[1].getTo();
-
                         System.out.println("Границы интервалов-разности равны:");
-                        System.out.println("Начало интервала #1  - " + newRangeFrom1);
-                        System.out.println("Конец интервала #1 - " + newRangeTo1);
-                        System.out.println("Начало интервала #2 - " + newRangeFrom2);
-                        System.out.println("Конец интервала #2 - " + newRangeTo2);
+
+                        System.out.print("Интервал #1 - ");
+                        rangesArray[0].print();
+
+                        System.out.print("Интервал #2 - ");
+                        rangesArray[1].print();
                     } else {
                         System.out.println("Границы интервала-разности равны:");
-                        System.out.println("Начало интервала - " + newRangeFrom1);
-                        System.out.println("Конец интервала - " + newRangeTo1);
+                        rangesArray[0].print();
                     }
 
                     break;
