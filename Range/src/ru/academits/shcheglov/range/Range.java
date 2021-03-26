@@ -75,7 +75,8 @@ public class Range {
         return new Range[0];
     }
 
-    public void print() {
-        System.out.printf("(%.2f ; %.2f)\n", from, to);
+    @Override
+    public String toString() {
+        return "(" + from + " ; " + to + ")";
     }
 }
