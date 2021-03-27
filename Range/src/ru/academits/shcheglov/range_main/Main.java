@@ -85,9 +85,9 @@ public class Main {
                     break;
                 case 3:
                     if (selectedRange == 1) {
-                        System.out.println(range1.toString());
+                        System.out.println(range1);
                     } else {
-                        System.out.println(range2.toString());
+                        System.out.println(range2);
                     }
 
                     break;
@@ -117,7 +117,7 @@ public class Main {
                     }
 
                     System.out.println("Границы интервала-пересечения равны:");
-                    System.out.println(intersectionRange.toString());
+                    System.out.println(intersectionRange);
 
                     break;
                 case 6:
@@ -127,13 +127,13 @@ public class Main {
                         System.out.println("Границы интервалов-объединения равны:");
 
                         System.out.print("Интервал #1 - ");
-                        System.out.println(rangesArray[0].toString());
+                        System.out.println(rangesArray[0]);
 
                         System.out.print("Интервал #2 - ");
-                        System.out.println(rangesArray[1].toString());
+                        System.out.println(rangesArray[1]);
                     } else {
                         System.out.println("Границы интервала-объединения равны:");
-                        System.out.println(rangesArray[0].toString());
+                        System.out.println(rangesArray[0]);
                     }
 
                     break;
@@ -149,13 +149,13 @@ public class Main {
                         System.out.println("Границы интервалов-разности равны:");
 
                         System.out.print("Интервал #1 - ");
-                        System.out.println(rangesArray[0].toString());
+                        System.out.println(rangesArray[0]);
 
                         System.out.print("Интервал #2 - ");
-                        System.out.println(rangesArray[1].toString());
+                        System.out.println(rangesArray[1]);
                     } else {
                         System.out.println("Границы интервала-разности равны:");
-                        System.out.println(rangesArray[0].toString());
+                        System.out.println(rangesArray[0]);
                     }
 
                     break;
