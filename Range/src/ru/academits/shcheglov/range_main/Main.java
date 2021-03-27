@@ -67,6 +67,7 @@ public class Main {
                 case 2:
                     System.out.println("Введите число:");
                     double number = scanner.nextDouble();
+
                     boolean isInside;
 
                     if (selectedRange == 1) {
