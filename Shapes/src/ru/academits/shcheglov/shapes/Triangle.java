@@ -49,6 +49,35 @@ public class Triangle implements Shape {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Triangle t = (Triangle) o;
+
+        return (x1 == t.x1) && (x2 == t.x2) && (x3 == t.x3) && (y1 == t.y1) && (y2 == t.y2) && (y3 == t.y3);
+    }
+
+    public int hashCode() {
+        int prime = 13;
+        int hash = 1;
+
+        hash = prime * hash + Double.hashCode(x1);
+        hash = prime * hash + Double.hashCode(x2);
+        hash = prime * hash + Double.hashCode(x3);
+        hash = prime * hash + Double.hashCode(y1);
+        hash = prime * hash + Double.hashCode(y2);
+        hash = prime * hash + Double.hashCode(y3);
+
+        return hash;
+    }
+
+    @Override
     public String toString() {
         return "Треугольник:\n" +
                 "Ширина - " + getWidth() +

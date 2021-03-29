@@ -28,6 +28,29 @@ public class Square implements Shape {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Square s = (Square) o;
+
+        return sideLength == s.sideLength;
+    }
+
+    @Override
+    public int hashCode() {
+        int prime = 13;
+        int hash = 1;
+
+        return prime * hash + Double.hashCode(sideLength);
+    }
+
+    @Override
     public String toString() {
         return "Квадрат:\n" +
                 "Ширина - " + getWidth() +

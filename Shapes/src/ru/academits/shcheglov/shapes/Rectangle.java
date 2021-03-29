@@ -30,6 +30,32 @@ public class Rectangle implements Shape {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Rectangle r = (Rectangle) o;
+
+        return sideLength1 == r.sideLength1 && sideLength2 == r.sideLength2;
+    }
+
+    @Override
+    public int hashCode() {
+        int prime = 13;
+        int hash = 1;
+
+        hash = prime * hash + Double.hashCode(sideLength1);
+        hash = prime * hash + Double.hashCode(sideLength2);
+
+        return hash;
+    }
+
+    @Override
     public String toString() {
         return "Прямоугольник:\n" +
                 "Ширина - " + getWidth() +

@@ -28,6 +28,29 @@ public class Circle implements Shape {
     }
 
     @Override
+    public int hashCode() {
+        int prime = 13;
+        int hash = 1;
+
+        return prime * hash + Double.hashCode(radius);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Circle c = (Circle) o;
+
+        return radius == c.radius;
+    }
+
+    @Override
     public String toString() {
         return "Круг:\n" +
                 "Ширина - " + getWidth() +
