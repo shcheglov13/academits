@@ -76,7 +76,7 @@ public class Vector {
         return newVector;
     }
 
-    public double getSize() {
+    public int getSize() {
         return components.length;
     }
 
