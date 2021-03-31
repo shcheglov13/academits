@@ -38,10 +38,7 @@ public class Range {
             return null;
         }
 
-        double from = Math.max(this.from, range.from);
-        double to = Math.min(this.to, range.to);
-
-        return new Range(from, to);
+        return new Range(Math.max(from, range.from), Math.min(to, range.to));
     }
 
     public Range[] getUnion(Range range) {
@@ -49,10 +46,7 @@ public class Range {
             return new Range[]{new Range(from, to), new Range(range.from, range.to)};
         }
 
-        double from = Math.min(this.from, range.from);
-        double to = Math.max(this.to, range.to);
-
-        return new Range[]{new Range(from, to)};
+        return new Range[]{new Range(Math.min(from, range.from), Math.max(to, range.to))};
     }
 
     public Range[] getDifference(Range range) {
@@ -77,6 +71,6 @@ public class Range {
 
     @Override
     public String toString() {
-        return "(" + from + " ; " + to + ")";
+        return "(" + from + ";" + to + ")";
     }
 }

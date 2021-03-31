@@ -2,6 +2,7 @@ package ru.academits.shcheglov.range_main;
 
 import ru.academits.shcheglov.range.Range;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -123,40 +124,15 @@ public class Main {
                 case 6:
                     Range[] rangesArray = range1.getUnion(range2);
 
-                    if (rangesArray.length == 2) {
-                        System.out.println("Границы интервалов-объединения равны:");
-
-                        System.out.print("Интервал #1 - ");
-                        System.out.println(rangesArray[0]);
-
-                        System.out.print("Интервал #2 - ");
-                        System.out.println(rangesArray[1]);
-                    } else {
-                        System.out.println("Границы интервала-объединения равны:");
-                        System.out.println(rangesArray[0]);
-                    }
+                    System.out.println("Границы интервала(ов)-объединения равны:");
+                    System.out.println(Arrays.toString(rangesArray));
 
                     break;
                 case 7:
                     rangesArray = range1.getDifference(range2);
 
-                    if (rangesArray.length == 0) {
-                        System.out.println("Интервал отсутствует");
-                        break;
-                    }
-
-                    if (rangesArray.length == 2) {
-                        System.out.println("Границы интервалов-разности равны:");
-
-                        System.out.print("Интервал #1 - ");
-                        System.out.println(rangesArray[0]);
-
-                        System.out.print("Интервал #2 - ");
-                        System.out.println(rangesArray[1]);
-                    } else {
-                        System.out.println("Границы интервала-разности равны:");
-                        System.out.println(rangesArray[0]);
-                    }
+                    System.out.println("Границы интервала(ов)-разности равны:");
+                    System.out.println(Arrays.toString(rangesArray));
 
                     break;
                 case 8:
