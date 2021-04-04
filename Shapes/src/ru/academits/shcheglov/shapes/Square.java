@@ -7,6 +7,14 @@ public class Square implements Shape {
         this.sideLength = sideLength;
     }
 
+    public double getSideLength() {
+        return sideLength;
+    }
+
+    public void setSideLength(double sideLength) {
+        this.sideLength = sideLength;
+    }
+
     @Override
     public double getWidth() {
         return sideLength;
@@ -52,10 +60,7 @@ public class Square implements Shape {
 
     @Override
     public String toString() {
-        return "Квадрат:\n" +
-                "Ширина - " + getWidth() +
-                "\nВысота - " + getHeight() +
-                "\nПлощадь - " + getArea() +
-                "\nПериметр - " + getPerimeter();
+        return "Квадрат: " +
+                "Длина стороны = " + sideLength;
     }
 }

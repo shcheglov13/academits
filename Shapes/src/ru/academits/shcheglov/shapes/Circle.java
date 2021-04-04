@@ -7,6 +7,14 @@ public class Circle implements Shape {
         this.radius = radius;
     }
 
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
     @Override
     public double getWidth() {
         return radius * 2;
@@ -52,10 +60,7 @@ public class Circle implements Shape {
 
     @Override
     public String toString() {
-        return "Круг:\n" +
-                "Ширина - " + getWidth() +
-                "\nВысота - " + getHeight() +
-                "\nПлощадь - " + getArea() +
-                "\nПериметр - " + getPerimeter();
+        return "Круг: " +
+                "радиус = " + radius;
     }
 }

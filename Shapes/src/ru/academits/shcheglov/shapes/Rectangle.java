@@ -1,32 +1,40 @@
 package ru.academits.shcheglov.shapes;
 
 public class Rectangle implements Shape {
-    private double sideLength1;
-    private double sideLength2;
+    private double width;
+    private double height;
 
-    public Rectangle(double sideLength1, double sideLength2) {
-        this.sideLength1 = sideLength1;
-        this.sideLength2 = sideLength2;
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     @Override
     public double getWidth() {
-        return Math.min(sideLength1, sideLength2);
+        return width;
     }
 
     @Override
     public double getHeight() {
-        return Math.max(sideLength1, sideLength2);
+        return height;
     }
 
     @Override
     public double getArea() {
-        return sideLength1 * sideLength2;
+        return width * height;
     }
 
     @Override
     public double getPerimeter() {
-        return (sideLength1 + sideLength2) * 2;
+        return (width + height) * 2;
     }
 
     @Override
@@ -41,7 +49,7 @@ public class Rectangle implements Shape {
 
         Rectangle r = (Rectangle) o;
 
-        return sideLength1 == r.sideLength1 && sideLength2 == r.sideLength2;
+        return width == r.width && height == r.height;
     }
 
     @Override
@@ -49,18 +57,16 @@ public class Rectangle implements Shape {
         int prime = 13;
         int hash = 1;
 
-        hash = prime * hash + Double.hashCode(sideLength1);
-        hash = prime * hash + Double.hashCode(sideLength2);
+        hash = prime * hash + Double.hashCode(width);
+        hash = prime * hash + Double.hashCode(height);
 
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Прямоугольник:\n" +
-                "Ширина - " + getWidth() +
-                "\nВысота - " + getHeight() +
-                "\nПлощадь - " + getArea() +
-                "\nПериметр - " + getPerimeter();
+        return "Прямоугольник: " +
+                "ширина = " + width +
+                ", высота = " + height;
     }
 }
