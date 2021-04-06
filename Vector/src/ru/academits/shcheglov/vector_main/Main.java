@@ -33,13 +33,13 @@ public class Main {
         vector3.reverse();
         System.out.println("Развернутый вектор: " + vector3);
 
-        Vector vector5 = Vector.getVectorsSum(vector3, vector1);
+        Vector vector5 = Vector.getSum(vector3, vector1);
         System.out.println("Результат суммы векторов через статический метод: " + vector5);
 
-        Vector vector6 = Vector.getVectorsDifference(vector1, vector5);
+        Vector vector6 = Vector.getDifference(vector1, vector5);
         System.out.println("Результат разности векторов через статический метод: " + vector6);
 
-        double scalar = Vector.getVectorsScalarMultiplication(vector6, vector4);
+        double scalar = Vector.getScalarProduct(vector6, vector4);
         System.out.println("Результат скалярного произведения векторов через статический метод: " + scalar);
     }
 }
