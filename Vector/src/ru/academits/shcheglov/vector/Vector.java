@@ -15,7 +15,7 @@ public class Vector {
 
     public Vector(int size, double... components) {
         if (size <= 0) {
-            throw new IllegalArgumentException("Размер вектора должен быть > 0");
+            throw new IllegalArgumentException("Размер вектора должен быть > 0. Аргумент size = " + size);
         }
 
         this.components = Arrays.copyOf(components, size);
@@ -27,7 +27,7 @@ public class Vector {
 
     public Vector(double... components) {
         if (components.length == 0) {
-            throw new IllegalArgumentException("Размер вектора должен быть > 0");
+            throw new IllegalArgumentException("Размер вектора должен быть > 0. Длина массива = " + components.length);
         }
 
         this.components = Arrays.copyOf(components, components.length);
