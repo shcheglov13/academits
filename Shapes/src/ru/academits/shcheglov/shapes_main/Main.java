@@ -28,7 +28,7 @@ public class Main {
 
     public static Shape getShapeWithMaxArea(Shape... shapes) {
         if (shapes.length == 0) {
-            throw new IndexOutOfBoundsException("В метод передан пустой массив фигур");
+            throw new IllegalArgumentException("В метод передан пустой массив фигур");
         }
 
         Arrays.sort(shapes, new AreaComparator());
@@ -37,7 +37,7 @@ public class Main {
 
     public static Shape getShapeWithPenultimatePerimeter(Shape... shapes) {
         if (shapes.length == 0 || shapes.length == 1) {
-            throw new IndexOutOfBoundsException("В массиве слишком мало фигур");
+            throw new IllegalArgumentException("В массиве слишком мало фигур");
         }
 
         Arrays.sort(shapes, new PerimeterComparator());

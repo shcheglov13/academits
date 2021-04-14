@@ -60,7 +60,6 @@ public class Square implements Shape {
 
     @Override
     public String toString() {
-        return "Квадрат: " +
-                "Длина стороны = " + sideLength;
+        return "Квадрат: длина стороны = " + sideLength;
     }
 }
