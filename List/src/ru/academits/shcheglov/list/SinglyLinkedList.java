@@ -13,12 +13,8 @@ public class SinglyLinkedList<T> {
     }
 
     private ListItem<T> getNode(int index) {
-        if (index < 0) {
-            throw new IllegalArgumentException("Index must be >= 0");
-        }
-
-        if (index >= count) {
-            throw new IndexOutOfBoundsException("Index must be < " + count);
+        if (index >= count && index < 0) {
+            throw new IndexOutOfBoundsException("Index must be > 0 and < " + count);
         }
 
         ListItem<T> current = head;
